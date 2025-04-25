@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pymongo = "*"
+faker = "*"
+flask = "*"
+gunicorn = "*"
+pytest = "*"
+pytest-flask = "*"
+flask-compress = "*"
+prometheus-flask-exporter = "*"
+
+[dev-packages]
+black = "*"
+flake8 = "*"
+mypy = "*"
+pytest-cov = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+start = "python app.py"
+dev = "python app.py --debug"
+generate = "python generate_data.py"
+test = "pytest"
+lint = "flake8 ."
+format = "black ."

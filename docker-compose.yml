@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: monitoring-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_DATABASE=monitoring_app
+    networks:
+      - monitoring-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/monitoring_app --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: monitoring-app
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/
+      - DB_NAME=monitoring_app
+      - DEBUG=False
+      - PORT=5000
+    networks:
+      - monitoring-network
+    volumes:
+      - ./app:/app
+      - ./logs:/app/logs
+
+  data-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: data-generator
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    command: python generate_data.py --days 90 --reset --connection mongodb://mongodb:27017/
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/
+      - DB_NAME=monitoring_app
+    networks:
+      - monitoring-network
+    profiles:
+      - data-generation  # This service won't start by default, only when specified
+
+networks:
+  monitoring-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
