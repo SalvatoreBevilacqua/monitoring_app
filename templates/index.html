@@ -38,6 +38,7 @@
             border-radius: 10px;
             margin-bottom: 20px;
             transition: transform 0.2s;
+            position: relative; /* Important for absolute positioning */
         }
 
         .card:hover {
@@ -53,22 +54,39 @@
             font-weight: 600;
         }
 
-        .stat-card {
+        /* Fixed height card styles */
+        .card .stat-card {
             text-align: center;
             padding: 20px;
+            height: 180px !important; /* Fixed height for all cards */
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
-        .stat-value {
+        .card .stat-value {
             font-size: 2.2rem;
             font-weight: 700;
             color: var(--primary-color);
+            margin-bottom: 0;
         }
 
-        .stat-label {
+        .card .stat-label {
             font-size: 0.9rem;
             color: #7f8c8d;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        /* Progress bar positioning */
+        .card .progress {
+            height: 15px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            width: calc(100% - 40px);
         }
 
         .table {
@@ -184,7 +202,7 @@
                         <i class="fas fa-tachometer-alt fa-2x mb-3 text-primary"></i>
                         <div class="stat-value" id="avg-uptime">--</div>
                         <div class="stat-label">Average Uptime</div>
-                        <div class="progress mt-3">
+                        <div class="progress">
                             <div id="uptime-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%" 
                                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -371,6 +389,7 @@
     <footer class="text-center">
         <div class="container">
             <p class="mb-0">&copy; 2025 System Monitoring Dashboard</p>
+            <small>A professional backend development project</small>
         </div>
     </footer>
 

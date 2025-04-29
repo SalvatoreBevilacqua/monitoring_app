@@ -28,3 +28,64 @@
 2025-04-25 18:05:51,922 - werkzeug - INFO - 127.0.0.1 - - [25/Apr/2025 18:05:51] "GET /api/health HTTP/1.1" 200 -
 2025-04-25 18:05:51,924 - werkzeug - INFO - 127.0.0.1 - - [25/Apr/2025 18:05:51] "GET /api/notifications?page=1&per_page=10 HTTP/1.1" 200 -
 2025-04-25 18:05:52,017 - werkzeug - INFO - 127.0.0.1 - - [25/Apr/2025 18:05:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-29 15:27:29,829 - __main__ - INFO - Successfully connected to MongoDB
+2025-04-29 15:27:29,888 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.62:5000
+2025-04-29 15:27:29,888 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-29 15:29:24,428 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:29:24] "GET / HTTP/1.1" 200 -
+2025-04-29 15:29:24,779 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:29:24] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+2025-04-29 15:29:25,437 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:29:25] "GET /api/metrics/summary?days=30 HTTP/1.1" 200 -
+2025-04-29 15:29:25,441 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:29:25] "GET /api/health HTTP/1.1" 200 -
+2025-04-29 15:29:25,448 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:29:25] "GET /api/notifications?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:29:25,449 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:29:25] "GET /api/metrics?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:29:25,462 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:29:25] "GET /api/metrics?per_page=100&page=1 HTTP/1.1" 200 -
+2025-04-29 15:29:25,501 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:29:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-29 15:35:26,427 - __main__ - INFO - Successfully connected to MongoDB
+2025-04-29 15:35:26,447 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.62:5000
+2025-04-29 15:35:26,448 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-29 15:36:00,293 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:00] "GET / HTTP/1.1" 200 -
+2025-04-29 15:36:00,559 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:00] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+2025-04-29 15:36:01,427 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:01] "GET /api/metrics/summary?days=30 HTTP/1.1" 200 -
+2025-04-29 15:36:01,429 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:01] "GET /api/health HTTP/1.1" 200 -
+2025-04-29 15:36:01,433 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:01] "GET /api/metrics?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:36:01,434 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:01] "GET /api/notifications?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:36:01,439 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:01] "GET /api/metrics?per_page=100&page=1 HTTP/1.1" 200 -
+2025-04-29 15:36:06,867 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:06] "GET / HTTP/1.1" 200 -
+2025-04-29 15:36:06,941 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:06] "GET /static/scripts.js HTTP/1.1" 200 -
+2025-04-29 15:36:07,265 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:07] "GET /api/metrics/summary?days=30 HTTP/1.1" 200 -
+2025-04-29 15:36:07,267 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:07] "GET /api/metrics?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:36:07,269 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:07] "GET /api/notifications?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:36:07,272 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:07] "GET /api/health HTTP/1.1" 200 -
+2025-04-29 15:36:07,284 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:07] "GET /api/metrics?per_page=100&page=1 HTTP/1.1" 200 -
+2025-04-29 15:36:07,365 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:36:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-29 15:43:16,745 - __main__ - INFO - Successfully connected to MongoDB
+2025-04-29 15:43:16,791 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.62:5000
+2025-04-29 15:43:16,792 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-29 15:43:23,483 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:43:23] "GET / HTTP/1.1" 200 -
+2025-04-29 15:43:23,837 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:43:23] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+2025-04-29 15:43:24,673 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:43:24] "GET /api/metrics/summary?days=30 HTTP/1.1" 200 -
+2025-04-29 15:43:24,675 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:43:24] "GET /api/health HTTP/1.1" 200 -
+2025-04-29 15:43:24,680 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:43:24] "GET /api/notifications?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:43:24,682 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:43:24] "GET /api/metrics?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:43:24,685 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:43:24] "GET /api/metrics?per_page=100&page=1 HTTP/1.1" 200 -
+2025-04-29 15:50:01,147 - __main__ - INFO - Successfully connected to MongoDB
+2025-04-29 15:50:01,188 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.62:5000
+2025-04-29 15:50:01,189 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-29 15:50:05,735 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:50:05] "GET / HTTP/1.1" 200 -
+2025-04-29 15:50:05,995 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:50:05] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+2025-04-29 15:50:06,785 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:50:06] "GET /api/metrics/summary?days=30 HTTP/1.1" 200 -
+2025-04-29 15:50:06,792 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:50:06] "GET /api/health HTTP/1.1" 200 -
+2025-04-29 15:50:06,795 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:50:06] "GET /api/notifications?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:50:06,796 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:50:06] "GET /api/metrics?page=1&per_page=10 HTTP/1.1" 200 -
+2025-04-29 15:50:06,801 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2025 15:50:06] "GET /api/metrics?per_page=100&page=1 HTTP/1.1" 200 -
