@@ -2,26 +2,28 @@
 
 A robust web application for real-time system monitoring, built with Python Flask, MongoDB, and JavaScript.
 
+![Monitoring Dashboard](https://github.com/SalvatoreBevilacqua/monitoring_app/raw/main/screenshot.png)
+
 ## Technologies Used
 
-- **Backend**: Python 3.11, Flask, PyMongo
-- **Database**: MongoDB
-- **Frontend**: HTML5, CSS3, JavaScript, Chart.js, Bootstrap 5
-- **Containerization**: Docker, Docker Compose
+- **Backend**: Python 3.11, Flask, PyMongo  
+- **Database**: MongoDB  
+- **Frontend**: HTML5, CSS3, JavaScript, Chart.js, Bootstrap 5  
+- **Containerization**: Docker, Docker Compose  
 - **Development Tools**: Pipenv for dependency management
 
 ## Architecture
 
 The application follows a three-tier architecture:
 
-1. **Presentation Layer**: Responsive Bootstrap-based frontend with dynamic visualizations
-2. **Logic Layer**: Flask REST API for request handling and data processing
+1. **Presentation Layer**: Responsive Bootstrap-based frontend with dynamic visualizations  
+2. **Logic Layer**: Flask REST API for request handling and data processing  
 3. **Data Layer**: MongoDB database for persistent storage
 
 ## Requirements
 
-- Python 3.11
-- MongoDB 5.0 or higher
+- Python 3.11  
+- MongoDB 5.0 or higher  
 - Docker and Docker Compose (optional, for containerized deployment)
 
 ## Installation
@@ -32,36 +34,55 @@ The application follows a three-tier architecture:
    ```bash
    git clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
    cd monitoring_app
+   ```
 
-Install dependencies using Pipenv:
-bashpipenv install
+2. Install dependencies using Pipenv:
+   ```bash
+   pipenv install
+   ```
 
-Start MongoDB (if not already running):
-bashmongod --dbpath /path/to/data/directory
+3. Start MongoDB (if not already running):
+   ```bash
+   mongod --dbpath /path/to/data/directory
+   ```
 
-Generate test data:
-bashpipenv run python generate_data.py
+4. Generate test data:
+   ```bash
+   pipenv run python generate_data.py
+   ```
 
-Start the application:
-bashpipenv run python app.py
+5. Start the application:
+   ```bash
+   pipenv run python app.py
+   ```
 
-Access the application in your browser at http://localhost:5000
+6. Access the application in your browser at [http://localhost:5000](http://localhost:5000)
 
-Method 2: Using Docker
+---
 
-Clone the repository:
-bashgit clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
-cd monitoring_app
+### Method 2: Using Docker
 
-Build and start the containers:
-bashdocker-compose up -d
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
+   cd monitoring_app
+   ```
 
-Generate test data:
-bashdocker-compose --profile data-generation up data-generator
+2. Build and start the containers:
+   ```bash
+   docker-compose up -d
+   ```
 
-Access the application in your browser at http://localhost:5000
+3. Generate test data:
+   ```bash
+   docker-compose --profile data-generation up data-generator
+   ```
 
-Project Structure
+4. Access the application in your browser at [http://localhost:5000](http://localhost:5000)
+
+## Project Structure
+
+```
 monitoring_app/
 ├── app.py                 # Main Flask application
 ├── Dockerfile             # Docker configuration
@@ -74,88 +95,67 @@ monitoring_app/
 │   └── scripts.js         # Frontend JavaScript code
 └── templates/             # HTML templates
     └── index.html         # Main application page
-API Reference
-Available Endpoints
-GET /api/metrics
-Returns system metrics with pagination and filtering support.
-Query Parameters:
+```
 
-page: Page number (default: 1)
-per_page: Items per page (default: 10)
-start_date: Filter from this date (format YYYY-MM-DD)
-end_date: Filter to this date (format YYYY-MM-DD)
-keyword: Filter by keyword in activity
+## API Reference
 
-Example Response:
-json{
-  "data": [
-    {
-      "timestamp": "2025-04-24 10:15:23",
-      "uptime": 99.8,
-      "users_connected": 42,
-      "activity": "Normal"
-    }
-  ],
-  "pagination": {
-    "page": 1,
-    "per_page": 10,
-    "total": 90,
-    "pages": 9
-  }
-}
-GET /api/notifications
-Returns system notifications with pagination and filtering support.
-Query Parameters:
+### Available Endpoints
 
-Same as /api/metrics
+#### `GET /api/metrics`  
+Returns system metrics with pagination and filtering support.  
+**Query Parameters:**
+- `page`: Page number (default: 1)  
+- `per_page`: Items per page (default: 10)  
+- `start_date`: Filter from this date (format YYYY-MM-DD)  
+- `end_date`: Filter to this date (format YYYY-MM-DD)  
+- `keyword`: Filter by keyword in activity  
 
-GET /api/metrics/summary
-Returns a summary of system metrics.
-Query Parameters:
+#### `GET /api/notifications`  
+Returns system notifications with pagination and filtering support.  
+**Query Parameters:** Same as `/api/metrics`
 
-days: Number of days for the summary (default: 30)
+#### `GET /api/metrics/summary`  
+Returns a summary of system metrics.  
+**Query Parameters:**
+- `days`: Number of days for the summary (default: 30)
 
-GET /api/health
+#### `GET /api/health`  
 Returns the health status of the system and its components.
-Advanced Features
-Security
 
-Server-side validation of query parameters
-Secure error handling
-Comprehensive event logging
-Environment variables for sensitive configurations
+## Advanced Features
 
-Performance
+### Security
 
-Pagination for handling large datasets
-MongoDB query optimization
-Containerization for scalable deployment
+- Server-side validation of query parameters  
+- Secure error handling  
+- Comprehensive event logging  
+- Environment variables for sensitive configurations
 
-Usability
+### Performance
 
-Intuitive user interface
-Immediate visual feedback
-Interactive charts for data analysis
-Advanced filters for quickly finding information
+- Pagination for handling large datasets  
+- MongoDB query optimization  
+- Containerization for scalable deployment
 
-Project Strengths
+### Usability
 
-Robust Architecture: Clear separation between frontend, backend, and database.
-RESTful API: Well-designed interface for easy integration.
-Docker-ready: Complete configuration for containerized deployment.
-Optimized Performance: Server-side pagination and filtering.
-Error Handling: Comprehensive logging and error management system.
+- Intuitive user interface  
+- Immediate visual feedback  
+- Interactive charts for data analysis  
+- Advanced filters for quickly finding information
 
-Features
+## Project Strengths
 
-Real-time Dashboard: Visualization of system uptime, connected users, and suspicious activities
-Interactive Charts: Monitoring of uptime trends and user connections
-Advanced Filters: Search by date range and keywords
-RESTful API: Well-documented endpoints for integration with other systems
-Docker Containerization: Docker Compose configuration for easy deployment
-Pagination: Efficient handling of large data volumes
+- **Robust Architecture**: Clear separation between frontend, backend, and database  
+- **RESTful API**: Well-designed interface for easy integration  
+- **Docker-ready**: Complete configuration for containerized deployment  
+- **Optimized Performance**: Server-side pagination and filtering  
+- **Error Handling**: Comprehensive logging and error management system
 
-License
+## License
+
 MIT License
-Author
+
+## Author
+
 Salvatore Bevilacqua
