@@ -1,118 +1,93 @@
 # System Monitoring Dashboard
 
-Una robusta applicazione web per il monitoraggio di sistemi in tempo reale, costruita con Python Flask, MongoDB e JavaScript.
+A robust web application for real-time system monitoring, built with Python Flask, MongoDB, and JavaScript.
 
-![Monitoring Dashboard](https://github.com/username/system-monitoring-dashboard/raw/main/screenshot.png)
-
-## Tecnologie Utilizzate
+## Technologies Used
 
 - **Backend**: Python 3.11, Flask, PyMongo
 - **Database**: MongoDB
 - **Frontend**: HTML5, CSS3, JavaScript, Chart.js, Bootstrap 5
-- **Containerizzazione**: Docker, Docker Compose
-- **Tool di Sviluppo**: Pipenv per la gestione delle dipendenze
+- **Containerization**: Docker, Docker Compose
+- **Development Tools**: Pipenv for dependency management
 
-## Architettura
+## Architecture
 
-L'applicazione segue un'architettura a tre livelli:
+The application follows a three-tier architecture:
 
-1. **Livello di Presentazione**: Frontend responsivo basato su Bootstrap con visualizzazioni dinamiche
-2. **Livello di Logica**: API REST Flask per la gestione delle richieste e l'elaborazione dei dati
-3. **Livello di Dati**: Database MongoDB per lo storage persistente
+1. **Presentation Layer**: Responsive Bootstrap-based frontend with dynamic visualizations
+2. **Logic Layer**: Flask REST API for request handling and data processing
+3. **Data Layer**: MongoDB database for persistent storage
 
-## Requisiti
+## Requirements
 
-- Python 3.11 o superiore
-- MongoDB 5.0 o superiore
-- Docker e Docker Compose (opzionale, per deployment containerizzato)
+- Python 3.11
+- MongoDB 5.0 or higher
+- Docker and Docker Compose (optional, for containerized deployment)
 
-## Installazione
+## Installation
 
-### Metodo 1: Installazione manuale
+### Method 1: Manual Installation
 
-1. Clona il repository:
+1. Clone the repository:
    ```bash
-   git clone https://github.com/username/system-monitoring-dashboard.git
-   cd system-monitoring-dashboard
-   ```
+   git clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
+   cd monitoring_app
 
-2. Installa le dipendenze usando Pipenv:
-   ```bash
-   pipenv install
-   ```
+Install dependencies using Pipenv:
+bashpipenv install
 
-3. Avvia MongoDB (se non è già in esecuzione):
-   ```bash
-   mongod --dbpath /path/to/data/directory
-   ```
+Start MongoDB (if not already running):
+bashmongod --dbpath /path/to/data/directory
 
-4. Genera dati di test:
-   ```bash
-   pipenv run python generate_data.py --days 90
-   ```
+Generate test data:
+bashpipenv run python generate_data.py
 
-5. Avvia l'applicazione:
-   ```bash
-   pipenv run python app.py
-   ```
+Start the application:
+bashpipenv run python app.py
 
-6. Accedi all'applicazione nel browser all'indirizzo [http://localhost:5000](http://localhost:5000)
+Access the application in your browser at http://localhost:5000
 
-### Metodo 2: Utilizzo di Docker
+Method 2: Using Docker
 
-1. Clona il repository:
-   ```bash
-   git clone https://github.com/username/system-monitoring-dashboard.git
-   cd system-monitoring-dashboard
-   ```
+Clone the repository:
+bashgit clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
+cd monitoring_app
 
-2. Costruisci e avvia i container:
-   ```bash
-   docker-compose up -d
-   ```
+Build and start the containers:
+bashdocker-compose up -d
 
-3. Genera dati di test:
-   ```bash
-   docker-compose --profile data-generation up data-generator
-   ```
+Generate test data:
+bashdocker-compose --profile data-generation up data-generator
 
-4. Accedi all'applicazione nel browser all'indirizzo [http://localhost:5000](http://localhost:5000)
+Access the application in your browser at http://localhost:5000
 
-## Struttura del Progetto
+Project Structure
+monitoring_app/
+├── app.py                 # Main Flask application
+├── Dockerfile             # Docker configuration
+├── docker-compose.yml     # Docker Compose configuration
+├── generate_data.py       # Script to generate test data
+├── Pipfile                # Python dependency management
+├── Pipfile.lock           # Locked dependencies
+├── README.md              # Documentation
+├── static/                # Static assets
+│   └── scripts.js         # Frontend JavaScript code
+└── templates/             # HTML templates
+    └── index.html         # Main application page
+API Reference
+Available Endpoints
+GET /api/metrics
+Returns system metrics with pagination and filtering support.
+Query Parameters:
 
-```
-system-monitoring-dashboard/
-├── app.py                 # Applicazione Flask principale
-├── Dockerfile             # Configurazione per Docker
-├── docker-compose.yml     # Configurazione Docker Compose
-├── generate_data.py       # Script per generare dati di test
-├── Pipfile                # Gestione dipendenze Python
-├── Pipfile.lock           # Versioni bloccate delle dipendenze
-├── README.md              # Documentazione
-├── static/                # Asset statici
-│   └── scripts.js         # Codice JavaScript frontend
-└── templates/             # Template HTML
-    └── index.html         # Pagina principale dell'applicazione
-```
+page: Page number (default: 1)
+per_page: Items per page (default: 10)
+start_date: Filter from this date (format YYYY-MM-DD)
+end_date: Filter to this date (format YYYY-MM-DD)
+keyword: Filter by keyword in activity
 
-## API Reference
-
-### Endpoint disponibili
-
-#### `GET /api/metrics`
-
-Restituisce le metriche di sistema con supporto per paginazione e filtri.
-
-**Parametri di query:**
-- `page`: Numero di pagina (default: 1)
-- `per_page`: Elementi per pagina (default: 10)
-- `start_date`: Filtra da questa data (formato YYYY-MM-DD)
-- `end_date`: Filtra fino a questa data (formato YYYY-MM-DD)
-- `keyword`: Filtra per parola chiave nell'attività
-
-**Esempio di risposta:**
-```json
-{
+Example Response:
+json{
   "data": [
     {
       "timestamp": "2025-04-24 10:15:23",
@@ -128,78 +103,59 @@ Restituisce le metriche di sistema con supporto per paginazione e filtri.
     "pages": 9
   }
 }
-```
+GET /api/notifications
+Returns system notifications with pagination and filtering support.
+Query Parameters:
 
-#### `GET /api/notifications`
+Same as /api/metrics
 
-Restituisce le notifiche di sistema con supporto per paginazione e filtri.
+GET /api/metrics/summary
+Returns a summary of system metrics.
+Query Parameters:
 
-**Parametri di query:**
-- Stessi parametri di `/api/metrics`
+days: Number of days for the summary (default: 30)
 
-#### `GET /api/metrics/summary`
+GET /api/health
+Returns the health status of the system and its components.
+Advanced Features
+Security
 
-Restituisce un riepilogo delle metriche di sistema.
+Server-side validation of query parameters
+Secure error handling
+Comprehensive event logging
+Environment variables for sensitive configurations
 
-**Parametri di query:**
-- `days`: Numero di giorni per il riepilogo (default: 30)
+Performance
 
-#### `GET /api/health`
+Pagination for handling large datasets
+MongoDB query optimization
+Containerization for scalable deployment
 
-Restituisce lo stato di salute del sistema e delle sue componenti.
+Usability
 
-## Caratteristiche Avanzate
+Intuitive user interface
+Immediate visual feedback
+Interactive charts for data analysis
+Advanced filters for quickly finding information
 
-### Sicurezza
-- Parametri di query validati sul server
-- Gestione sicura degli errori
-- Logging completo degli eventi
-- Variabili d'ambiente per configurazioni sensibili
+Project Strengths
 
-### Performance
-- Paginazione per gestire grandi dataset
-- Ottimizzazione delle query MongoDB
-- Containerizzazione per deployment scalabile
+Robust Architecture: Clear separation between frontend, backend, and database.
+RESTful API: Well-designed interface for easy integration.
+Docker-ready: Complete configuration for containerized deployment.
+Optimized Performance: Server-side pagination and filtering.
+Error Handling: Comprehensive logging and error management system.
 
-### Usabilità
-- Interfaccia utente intuitiva
-- Feedback visivo immediato
-- Grafici interattivi per l'analisi dei dati
-- Filtri avanzati per trovare rapidamente informazioni
+Features
 
-## Punti di Forza del Progetto
+Real-time Dashboard: Visualization of system uptime, connected users, and suspicious activities
+Interactive Charts: Monitoring of uptime trends and user connections
+Advanced Filters: Search by date range and keywords
+RESTful API: Well-documented endpoints for integration with other systems
+Docker Containerization: Docker Compose configuration for easy deployment
+Pagination: Efficient handling of large data volumes
 
-1. **Architettura Robusta**: Separazione chiara tra frontend, backend e database.
-
-2. **API RESTful**: Interfaccia ben progettata per facilitare l'integrazione.
-
-3. **Docker-ready**: Configurazione completa per deployment containerizzato.
-
-4. **Performance Ottimizzata**: Paginazione e filtri implementati lato server.
-
-5. **Gestione Errori**: Sistema completo di logging e gestione degli errori.
-
-## Sviluppi Futuri
-
-- Implementazione di autenticazione e autorizzazione
-- Esportazione dei dati in formati CSV/Excel
-- Notifiche email/Slack per eventi critici
-- Dashboard personalizzabili
-- Integrazione con sistemi di monitoring esterni
-
-## Licenza
-
-MIT License. Vedi file LICENSE per maggiori dettagli.
-
-## Autore
-
-[Il tuo nome] - [Il tuo indirizzo email] Caratteristiche
-
-- **Dashboard in tempo reale**: Visualizzazione dell'uptime del sistema, utenti connessi e attività sospette
-- **Grafici interattivi**: Monitoraggio delle tendenze di uptime e connessioni utente
-- **Filtri avanzati**: Ricerca per intervallo di date e parole chiave
-- **API RESTful**: Endpoint ben documentati per l'integrazione con altri sistemi
-- **Containerizzazione Docker**: Configurazione Docker Compose per un facile deployment
-- **Paginazione**: Gestione efficiente di grandi volumi di dati
-
-##
+License
+MIT License
+Author
+Salvatore Bevilacqua
