@@ -1,103 +1,101 @@
-# System Monitoring Dashboard
+# 📊 System Monitoring Dashboard
 
-A robust web application for real-time system monitoring, built with Python Flask, MongoDB, and JavaScript.
+> A robust web application for real-time system monitoring, built with Python Flask, MongoDB, and JavaScript.
 
-![Monitoring Dashboard](https://github.com/SalvatoreBevilacqua/monitoring_app/raw/main/screenshot.png)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python Version](https://img.shields.io/badge/Python-3.11-blue)
+![Flask](https://img.shields.io/badge/Flask-3.0.3-blue)
+![MongoDB](https://img.shields.io/badge/MongoDB-5.0+-yellow)
+![Deployment](https://img.shields.io/badge/Deployment-Docker-blue?logo=docker)
 
-## Technologies Used
+![Dashboard](https://github.com/SalvatoreBevilacqua/monitoring_app/raw/main/screenshot.png)
 
-- **Backend**: Python 3.11, Flask, PyMongo  
-- **Database**: MongoDB  
-- **Frontend**: HTML5, CSS3, JavaScript, Chart.js, Bootstrap 5  
-- **Containerization**: Docker, Docker Compose  
-- **Development Tools**: Pipenv for dependency management
+---
 
-## Architecture
+## 🚀 Features
 
-The application follows a three-tier architecture:
+- **Real-time System Monitoring**: Track uptime, user connections, and system activity
+- **Interactive Visualizations**: Dynamic charts powered by Chart.js
+- **Detailed Analytics**: Summary statistics and trend analysis
+- **Alert Management**: Notification system for suspicious activities
+- **Responsive Design**: Bootstrap 5 mobile-first interface
+- **Advanced Filtering**: Date range and keyword search capabilities
+- **RESTful API**: Well-documented endpoints for system integration
+- **Containerized Deployment**: Docker and Docker Compose support
 
-1. **Presentation Layer**: Responsive Bootstrap-based frontend with dynamic visualizations  
-2. **Logic Layer**: Flask REST API for request handling and data processing  
-3. **Data Layer**: MongoDB database for persistent storage
+---
 
-## Requirements
+## 🛠️ Tech Stack
 
-- Python 3.11  
-- MongoDB 5.0 or higher  
-- Docker and Docker Compose (optional, for containerized deployment)
+| Layer           | Technologies                                         |
+|-----------------|------------------------------------------------------|
+| **Backend**     | Python 3.11, Flask, PyMongo                          |
+| **Frontend**    | HTML5, CSS3, JavaScript, Chart.js, Bootstrap 5       |
+| **Database**    | MongoDB                                              |
+| **Deployment**  | Docker, Docker Compose                               |
+| **Tools**       | Pipenv for dependency management                     |
+| **Monitoring**  | Custom metrics collection and visualization          |
 
-## Installation
+---
+
+## 📦 Installation & Setup
 
 ### Method 1: Manual Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
-   cd monitoring_app
-   ```
+```bash
+git clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
+cd monitoring_app
+pipenv install
+```
 
-2. Install dependencies using Pipenv:
-   ```bash
-   pipenv install
-   ```
+### 🔐 Environment Variables
 
-3. Start MongoDB (if not already running):
-   ```bash
-   mongod --dbpath /path/to/data/directory
-   ```
+Create a `.env` file and add:
 
-4. Generate test data:
-   ```bash
-   pipenv run python generate_data.py
-   ```
+```env
+MONGO_URI=mongodb://localhost:27017/
+DB_NAME=monitoring_app
+DEBUG=False
+PORT=5000
+```
 
-5. Start the application:
-   ```bash
-   pipenv run python app.py
-   ```
+### Starting MongoDB
 
-6. Access the application in your browser at [http://localhost:5000](http://localhost:5000)
+```bash
+mongod --dbpath /path/to/data/directory
+```
+
+### Generate Test Data
+
+```bash
+pipenv run generate
+```
+
+### Run the Application
+
+```bash
+pipenv run start
+```
 
 ---
 
 ### Method 2: Using Docker
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
-   cd monitoring_app
-   ```
-
-2. Build and start the containers:
-   ```bash
-   docker-compose up -d
-   ```
-
-3. Generate test data:
-   ```bash
-   docker-compose --profile data-generation up data-generator
-   ```
-
-4. Access the application in your browser at [http://localhost:5000](http://localhost:5000)
-
-## Project Structure
-
-```
-monitoring_app/
-├── app.py                 # Main Flask application
-├── Dockerfile             # Docker configuration
-├── docker-compose.yml     # Docker Compose configuration
-├── generate_data.py       # Script to generate test data
-├── Pipfile                # Python dependency management
-├── Pipfile.lock           # Locked dependencies
-├── README.md              # Documentation
-├── static/                # Static assets
-│   └── scripts.js         # Frontend JavaScript code
-└── templates/             # HTML templates
-    └── index.html         # Main application page
+```bash
+git clone https://github.com/SalvatoreBevilacqua/monitoring_app.git
+cd monitoring_app
+docker-compose up -d
 ```
 
-## API Reference
+### Generate Test Data with Docker
+
+```bash
+docker-compose --profile data-generation up data-generator
+```
+
+---
+
+## 🔄 API Reference
 
 ### Available Endpoints
 
@@ -122,40 +120,92 @@ Returns a summary of system metrics.
 #### `GET /api/health`  
 Returns the health status of the system and its components.
 
-## Advanced Features
+---
 
-### Security
+## 📁 Project Structure
 
-- Server-side validation of query parameters  
-- Secure error handling  
-- Comprehensive event logging  
-- Environment variables for sensitive configurations
+```
+monitoring_app/
+├── app.py                 # Main Flask application
+├── Dockerfile             # Docker configuration
+├── docker-compose.yml     # Docker Compose configuration
+├── generate_data.py       # Script to generate test data
+├── Pipfile                # Python dependency management
+├── Pipfile.lock           # Locked dependencies
+├── README.md              # Documentation
+├── static/                # Static assets
+│   └── scripts.js         # Frontend JavaScript code
+└── templates/             # HTML templates
+    └── index.html         # Main application page
+```
 
-### Performance
+---
 
-- Pagination for handling large datasets  
-- MongoDB query optimization  
-- Containerization for scalable deployment
+## 🧪 Testing
 
-### Usability
+Tested on:
 
-- Intuitive user interface  
-- Immediate visual feedback  
-- Interactive charts for data analysis  
-- Advanced filters for quickly finding information
+- ✅ Desktop: Chrome, Firefox, Safari
+- ✅ Mobile: Android Chrome, iOS Safari
+- ✅ Devices: Responsive on phones and tablets
 
-## Project Strengths
+To run tests:
 
-- **Robust Architecture**: Clear separation between frontend, backend, and database  
-- **RESTful API**: Well-designed interface for easy integration  
-- **Docker-ready**: Complete configuration for containerized deployment  
-- **Optimized Performance**: Server-side pagination and filtering  
-- **Error Handling**: Comprehensive logging and error management system
+```bash
+pipenv run test
+```
 
-## License
+---
+
+## 🌍 Deployment
+
+### Docker Deployment Steps:
+
+1. Ensure Docker and Docker Compose are installed
+2. Update environment variables in docker-compose.yml if needed
+3. Run `docker-compose up -d` to start the application
+4. Access the dashboard at http://localhost:5000
+
+### Manual Deployment:
+
+1. Set up a MongoDB instance
+2. Configure environment variables for production
+3. Use Gunicorn as WSGI server:
+   ```bash
+   pipenv run gunicorn -b 0.0.0.0:5000 app:app
+   ```
+
+---
+
+## 🔮 Future Enhancements
+
+- User authentication system
+- Role-based access control
+- Email alerting for critical events
+- Additional visualization options
+- Historical data analysis
+- API key management for external integrations
+- Dark mode support
+
+---
+
+## 🙏 Credits
+
+- [Flask](https://flask.palletsprojects.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Chart.js](https://www.chartjs.org/)
+- [Font Awesome](https://fontawesome.com/)
+
+---
+
+## 📜 License
 
 MIT License
 
-## Author
+---
 
-Salvatore Bevilacqua
+## 👨‍💻 Author
+
+**Salvatore Bevilacqua**  
+[GitHub](https://github.com/SalvatoreBevilacqua) • [LinkedIn](https://linkedin.com/in/salvatore-bevilacqua)
